@@ -1,0 +1,20 @@
+<h1> Todo List </h1>
+
+{{#each todos}}
+    <hr>
+    <div>
+        <p> {{title}} </p>
+        <p> {{description}} </p>
+        {{#if completed}}
+            <p>Completado</p>
+        {{else}}
+            <p>Pendiente</p>
+            <form action="/todos/{{_id}}/complete" method="POST">
+                <button type="submit"> Marcar como completado </button>
+            </form>
+        {{/if}}
+        <form action="/todos/{{_id}}/delete" method="POST">
+            <button type="submit"> Borrar </button>
+        </form>
+    </div>
+{{/each}}
